@@ -1,18 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth';
 import { itemTotal } from './cartHelpers';
 
-import { fade, makeStyles, createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { alpha, makeStyles, createTheme, ThemeProvider } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-// import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-// import MenuIcon from '@material-ui/icons/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -62,9 +60,9 @@ const useStyles = makeStyles((theme) => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -117,24 +115,21 @@ const useStyles = makeStyles((theme) => ({
   },
   iconButton: {
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.15),
+      backgroundColor: alpha(theme.palette.common.white, 0.15),
     },
   },
 }));
 
 const MaterialAppBar = ({ history }) => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-// eslint-disable-next-line
   const handleProfileMenuOpen = (event) => {
-    // eslint-disable-next-line
     setAnchorEl(event.currentTarget);
-    // eslint-disable-next-line
   };
 
   const handleMobileMenuClose = () => {
@@ -207,7 +202,7 @@ const MaterialAppBar = ({ history }) => {
             className={classes.link}
           >
             <IconButton aria-label='Cart' color='inherit'>
-              <Badge badgeContent={itemTotal()} color='secondary'>
+              <Badge overlap="rectangular" badgeContent={itemTotal()} color='secondary'>
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
@@ -335,7 +330,7 @@ const MaterialAppBar = ({ history }) => {
 
               <Link style={isActive(history, '/cart')} to='/cart' className={classes.link}>
                 <IconButton aria-label='Cart' color='inherit' className={classes.iconButton}>
-                  <Badge badgeContent={itemTotal()} color='secondary'>
+                  <Badge overlap="rectangular" badgeContent={itemTotal()} color='secondary'>
                     <ShoppingCartIcon />
                   </Badge>
                   <Typography noWrap>Cart</Typography>

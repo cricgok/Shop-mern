@@ -1,7 +1,7 @@
-import { API } from '../config';
+
 
 export const createCategory = (userId, token, category) => {
-  return fetch(`${API}/api/category/create/${userId}`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/category/create/${userId}`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -19,7 +19,7 @@ export const createCategory = (userId, token, category) => {
 };
 
 export const createProduct = (userId, token, product) => {
-  return fetch(`${API}/api/product/create/${userId}`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/product/create/${userId}`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -36,7 +36,7 @@ export const createProduct = (userId, token, product) => {
 };
 
 export const getCategories = () => {
-  return fetch(`${API}/api/categories`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/categories`, {
     method: 'GET',
   })
     .then((response) => {
@@ -46,7 +46,7 @@ export const getCategories = () => {
 };
 
 export const listOrders = (userId, token) => {
-  return fetch(`${API}/api/order/list/${userId}`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/order/list/${userId}`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
@@ -60,7 +60,7 @@ export const listOrders = (userId, token) => {
 };
 
 export const getStatusValues = (userId, token) => {
-  return fetch(`${API}/api/order/status-values/${userId}`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/order/status-values/${userId}`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
@@ -74,7 +74,7 @@ export const getStatusValues = (userId, token) => {
 };
 
 export const updateOrderStatus = (userId, token, orderId, status) => {
-  return fetch(`${API}/api/order/${orderId}/status/${userId}`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/order/${orderId}/status/${userId}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
@@ -98,7 +98,7 @@ export const updateOrderStatus = (userId, token, orderId, status) => {
  */
 
 export const getProducts = () => {
-  return fetch(`${API}/api/products?limit=undefined`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/products?limit=undefined`, {
     method: 'GET',
   })
     .then((response) => {
@@ -108,7 +108,7 @@ export const getProducts = () => {
 };
 
 export const deleteProduct = (productId, userId, token) => {
-  return fetch(`${API}/api/product/${productId}/${userId}`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/product/${productId}/${userId}`, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
@@ -123,7 +123,7 @@ export const deleteProduct = (productId, userId, token) => {
 };
 
 export const getProduct = (productId) => {
-  return fetch(`${API}/api/product/${productId}`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/product/${productId}`, {
     method: 'GET',
   })
     .then((response) => {
@@ -133,7 +133,7 @@ export const getProduct = (productId) => {
 };
 
 export const updateProduct = (productId, userId, token, product) => {
-  return fetch(`${API}/api/product/${productId}/${userId}`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/product/${productId}/${userId}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',

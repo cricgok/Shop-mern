@@ -55,6 +55,7 @@ export default function Signup() {
     event.preventDefault(); // so that browser does not reload
     setValues({ ...values, error: false });
     signup({ name, email, password }).then((data) => {
+      console.log(data); // Log the response data
       if (data.error) {
         setValues({ ...values, error: data.error, success: false });
       } else {
@@ -67,6 +68,9 @@ export default function Signup() {
           success: true,
         });
       }
+    }).catch((err) => {
+      console.error('Signup request failed:', err);
+      setValues({ ...values, error: 'Signup request failed', success: false });
     }); // sending js object
   };
 
@@ -158,7 +162,7 @@ export default function Signup() {
           >
             Sign Up
           </Button>
-          <Grid container justify='flex-end'>
+          <Grid container justifyContent='flex-end'>
             <Grid item>
               <Link to='/signin' variant='body2'>
                 Already have an account? Sign in

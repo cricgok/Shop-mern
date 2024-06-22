@@ -1,8 +1,7 @@
-import { API } from '../config';
 
 export const signup = (user) => {
   // console.log(name, email, password);
-  return fetch(`${API}/api/signup`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/signup`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -20,7 +19,7 @@ export const signup = (user) => {
 
 export const signin = (user) => {
   // console.log(name, email, password);
-  return fetch(`${API}/api/signin`, {
+  return fetch(`https://shop-mern-2z6b.onrender.com/api/signin`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -47,7 +46,7 @@ export const signout = (next) => {
   if (typeof window !== 'undefined') {
     localStorage.removeItem('jwt');
     next();
-    return fetch(`${API}/api/signout`, {
+    return fetch(`https://shop-mern-2z6b.onrender.com/api/signout`, {
       method: 'GET',
     })
       .then((response) => {
